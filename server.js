@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+(function(){var a={gen204:"ol",clearcut:14};google.rll(window,!1,function(){google.tick("load",a);google.c.u("pr")});google.tick("load",{gen204:"prt
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
