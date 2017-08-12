@@ -12,8 +12,8 @@ body {
     font-size: 500%;
 }
 
-.bold {
-    font-weight: bold;
+.italic {
+    font-weight: inherit;
 }
 
 .img-medium {
