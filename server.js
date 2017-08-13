@@ -11,10 +11,9 @@ app.get('/', function (req, res) {
  
 
 var articles ;
-{var articleOne = 
-     {title : 'KUSH PANDYA ARTICLE 1',
-     heading : 'ARTICLE 1',
-     content :` <html>
+{ articleOne :{title = 'KUSH PANDYA ARTICLE 1';
+     heading = 'ARTICLE 1';
+     content =` <html>
                     <head>
                             <title>
                             KUSH PANDYA ARTICLE 1
@@ -29,12 +28,11 @@ var articles ;
                             </p>    
                     </body>
     
-                </html>`
-                };
-var articleTwo =
-{title : 'KUSH PANDYA ARTICLE 2',
-heading : '' ,
-content : `<html>
+                </html>`;
+                }
+ articleTwo : {title = 'KUSH PANDYA ARTICLE 2',
+heading = '' ,
+content = `<html>
    <head>
         <title>
                 KUSH PANDYA ARTICLE 2
@@ -45,8 +43,8 @@ content : `<html>
         HI THIS IS ARTICLE TWO OF KUSH PANDYA
     </body>
     
-</html>`
-};
+</html>`;
+}
 }
 
 -/*function articles(articleName)
@@ -104,8 +102,9 @@ function createtemplate(data)
     return HTMLtemplate;
 }
  
- app.get('/articleName',function (req,res){
-    res.send(createtemplate(articleName));});
+ app.get('/:articleName',function (req,res){
+    var articleName = req.params.articleName;
+    res.send(createtemplate(articles(articleName)));});
      
  
  /*app.get('/article1', function (req, res){
