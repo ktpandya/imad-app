@@ -31,7 +31,7 @@ var article1 =
     
                 </html>`
                 };
-function createtemplate (data)
+function createtemplate(data)
 
 {
     var title = data.title;
@@ -56,7 +56,9 @@ function createtemplate (data)
 </html>
 
         
-    `}
+    `;
+    return HTMLtemplate;
+}
  
  app.get('/article1', function (req, res){
    res.send(createtemplate(article1));
