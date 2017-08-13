@@ -1,13 +1,10 @@
-body {
+.body1 {
     font-family: sans-serif;
     background-color: blue;
     margin-top: 75px;
 }
 
-.h2{
-    background-color: violet;
-    color: yellow ;
-}
+
 
 
 .center {
