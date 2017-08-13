@@ -9,8 +9,57 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
  
+
+ 
+var article1 = 
+     {title : 'KUSH PANDYA ARTICLE 1',
+     heading : 'ARTICLE 1',
+     content :` <html>
+                    <head>
+                            <title>
+                            KUSH PANDYA ARTICLE 1
+                            </title>
+                    </head>
+                    <body>
+                            <h2>
+                                 ARTICLE 1  
+                            </h2>
+                            <p>
+                                 HI THIS IS ARTICLE ONE OF KUSH PANDYA
+                            </p>    
+                    </body>
+    
+                </html>`
+                };
+function createtemplate (data)
+
+{
+    var title = data.title;
+    var heading = data.heading;
+    var content = data.content;
+    var HTMLtemplate = 
+    `    <html>
+    <head>
+         <title>
+                ${title};
+         </title>
+    </head>
+    <body>
+         <h2>
+             ${heading};
+         </h2>
+         <p>
+             ${content};
+         </p>    
+    </body>
+    
+</html>
+
+        
+    `}
+ 
  app.get('/article1', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article1.html'));
+   res.send(createtemplate(article1));
 });
 
 app.get('/article2', function (req, res){
