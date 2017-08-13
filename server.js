@@ -105,7 +105,7 @@ function createtemplate(data)
 }
  
  app.get('/articleName',function (req,res){
-    res.send(articles(articleName));});
+    res.send(createtemplate(articleName));});
      
  
  /*app.get('/article1', function (req, res){
