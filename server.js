@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
  
 
  
-var articleone = 
+var articleOne = 
      {title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
      content :` <html>
