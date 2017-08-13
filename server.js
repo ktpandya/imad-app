@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
 });
  
 
- 
-var articleOne = 
+var articles  =
+{var articleOne = 
      {title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
      content :` <html>
@@ -47,14 +47,14 @@ content : `<html>
     
 </html>`
 }
-
+}
 
 function articles(articleName)
 {
 var title = articleName.title;
 var heading = articleName.heading;
 varcontent = articleName.content;
-var articles = 
+var article = 
     `    <html>
     <head>
          <title>
@@ -73,7 +73,7 @@ var articles =
 </html>
 
         
-    `;return articles;
+    `;return article;
 }
 /*function createtemplate(data)
 
