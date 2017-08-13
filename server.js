@@ -51,12 +51,31 @@ content : `<html>
 
 function articles(articleName)
 {
-title = articleName.title;
-heading = articleName.heading;
-content = articleName.content;
+var title = articleName.title;
+var heading = articleName.heading;
+varcontent = articleName.content;
+var articles = 
+    `    <html>
+    <head>
+         <title>
+                ${title};
+         </title>
+    </head>
+    <body>
+         <h2>
+             ${heading};
+         </h2>
+         <p>
+             ${content};
+         </p>    
+    </body>
+    
+</html>
 
+        
+    `;return articles;
 }
-function createtemplate(data)
+/*function createtemplate(data)
 
 {
     var title = data.title;
@@ -83,7 +102,7 @@ function createtemplate(data)
         
     `;
     return HTMLtemplate;
-}
+}*/
  
  app.get('/articleName',function (req,res){
     res.send(articles(articleName));});
