@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
  
 
 var articles ;
-{ articleOne :{title = 'KUSH PANDYA ARTICLE 1';
+{article1 :{title = 'KUSH PANDYA ARTICLE 1';
      heading = 'ARTICLE 1';
      content =` <html>
                     <head>
@@ -29,8 +29,8 @@ var articles ;
                     </body>
     
                 </html>`;
-                }
- articleTwo : {title = 'KUSH PANDYA ARTICLE 2',
+                },
+article2: {title = 'KUSH PANDYA ARTICLE 2',
 heading = '' ,
 content = `<html>
    <head>
@@ -44,35 +44,10 @@ content = `<html>
     </body>
     
 </html>`;
-}
+},
 }
 
--/*function articles(articleName)
-{
-var title = articleName.title;
-var heading = articleName.heading;
-varcontent = articleName.content;
-var article = 
-    `    <html>
-    <head>
-         <title>
-                ${title};
-         </title>
-    </head>
-    <body>
-         <h2>
-             ${heading};
-         </h2>
-         <p>
-             ${content};
-         </p>    
-    </body>
-    
-</html>
 
-        
-    `;return article;
-}*/
 function createtemplate(data)
 
 {
@@ -100,22 +75,16 @@ function createtemplate(data)
         
     `;
     return HTMLtemplate;
-};
+}
  
  app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles(articleName)));});
      
  
- /*app.get('/article1', function (req, res){
-   res.send(createtemplate(article1));
-});
 
-app.get('/article2', function (req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
-});
 
-app.get('/article3', function (req, res){
+/*app.get('/article3', function (req, res){
    res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
 });*/
 
