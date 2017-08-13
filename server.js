@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
  
 
  
-var article1 = 
+var articleone = 
      {title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
      content :` <html>
@@ -31,7 +31,7 @@ var article1 =
     
                 </html>`
                 };
-var article2 =
+var articletwo =
 {title : 'KUSH PANDYA ARTICLE 2',
 heading : '' ,
 content : `<html>
