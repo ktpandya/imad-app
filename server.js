@@ -100,7 +100,7 @@ function createtemplate(data)
         
     `;
     return HTMLtemplate;
-}
+};
  
  app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
