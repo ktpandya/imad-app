@@ -4,6 +4,12 @@ body {
     margin-top: 75px;
 }
 
+.h2{
+    background-color: violet;
+    color: yellow ;
+}
+
+
 .center {
     text-align: center;
 }
