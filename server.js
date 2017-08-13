@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 });
  
 
-var articles  =
+var articles ;
 {var articleOne = 
      {title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
@@ -31,7 +31,7 @@ var articles  =
     
                 </html>`
                 };
-var articletwo =
+var articleTwo =
 {title : 'KUSH PANDYA ARTICLE 2',
 heading : '' ,
 content : `<html>
@@ -46,10 +46,10 @@ content : `<html>
     </body>
     
 </html>`
-}
+};
 }
 
-function articles(articleName)
+-/*function articles(articleName)
 {
 var title = articleName.title;
 var heading = articleName.heading;
@@ -74,8 +74,8 @@ var article =
 
         
     `;return article;
-}
-/*function createtemplate(data)
+}*/
+function createtemplate(data)
 
 {
     var title = data.title;
@@ -102,7 +102,7 @@ var article =
         
     `;
     return HTMLtemplate;
-}*/
+}
  
  app.get('/articleName',function (req,res){
     res.send(articles(articleName));});
