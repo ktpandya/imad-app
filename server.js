@@ -11,7 +11,8 @@ app.get('/', function (req, res) {
  
 
 var articles ;
-article1 :{title = 'KUSH PANDYA ARTICLE 1';
+{
+    article1 :{title = 'KUSH PANDYA ARTICLE 1';
      heading = 'ARTICLE 1';
      content =` <html>
                     <head>
@@ -30,9 +31,10 @@ article1 :{title = 'KUSH PANDYA ARTICLE 1';
     
                 </html>`;
                 }
-article2: {title = 'KUSH PANDYA ARTICLE 2',
-heading = 'ARTICLE2' ,
-content = `<html>
+    article2 : {
+title : 'KUSH PANDYA ARTICLE 2';
+heading : 'ARTICLE2' ;
+content : `<html>
    <head>
         <title>
                 KUSH PANDYA ARTICLE 2
@@ -49,7 +51,29 @@ content = `<html>
 </html>`;
 
 }
+    article3 :{
+      title : 'KUSH PANDYA ARTICLE 3';
+      heading : 'ARTICLE 3';
+      content : `<html>
+    <head>
+        <title>
+                KUSH PANDYA ARTICLE 3
+        </title>
+        
+    </head>
+    <body>
+       <h2>ARTICLE 3 
+       </h2>
+         
+        HI THIS IS ARTICLE THREE OF KUSH PANDYA
+    </body>
+    
+</html>`;
+        
+        
+    }
 
+}
 
 function createtemplate(data)
 
@@ -68,9 +92,9 @@ function createtemplate(data)
          <h2>
              ${heading};
          </h2>
-         <p>
-             ${content};
-         </p>    
+         
+           <p>  ${content};
+            </p>
     </body>
     
 </html>
