@@ -106,7 +106,7 @@ function createtemplate(data)
  
  app.get('/:articleNumb',function (req,res){
     var articleNumb = req.params.articleNumb;
-    res.send(createtemplate(articles(articleNumb)));});
+    res.send(createtemplate(articlesarticleNumb));});
      
  
 
