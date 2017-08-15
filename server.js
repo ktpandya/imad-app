@@ -80,9 +80,9 @@ function createtemplate(data)
     return HTMLtemplate;
 }
  
- app.get('/:articleNumber',function (req,res){
-    var articleNumber = req.params.articleNumber;
-    res.send(createtemplate(articles(articlenumber)));});
+ app.get('/:articleNumb',function (req,res){
+    var articleNumb = req.params.articleNumb;
+    res.send(createtemplate(articles(articleNumb)));});
      
  
 
