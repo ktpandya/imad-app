@@ -76,7 +76,6 @@ content : `<html>
 }
 
 function createtemplate(data)
-
 {
     var title = data.title;
     var heading = data.heading;
@@ -98,22 +97,17 @@ function createtemplate(data)
     </body>
     
 </html>
-
-        
     `;
     return HTMLtemplate;
 }
  
- app.get('/:articleNumb',function (req,res){
+ app.get('/: articleNumb',function (req,res){
     var articleNumb = req.params.articleNumb;
     res.send(createtemplate(articlesarticleNumb));});
      
  
 
 
-/*app.get('/article3', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
-});*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
