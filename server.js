@@ -10,8 +10,7 @@ app.get('/', function (req, res) {
 });
  
 
-var article ;
-{
+/*var article ;{
     article_1 :{title = 'KUSH PANDYA ARTICLE 1';
      heading = 'ARTICLE 1';
      content =` <html>
@@ -75,8 +74,7 @@ content : `<html>
 
 }
 
-function createtemplate(data)
-{
+function createtemplate(data){
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
@@ -103,11 +101,7 @@ function createtemplate(data)
  
  app.get('/: article_Numb',function (req,res){
     var article_Numb = req.params.article_Numb;
-    res.send(createtemplate(article_Numb));});
-     
- 
-
-
+    res.send(createtemplate(article_Numb));});*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
