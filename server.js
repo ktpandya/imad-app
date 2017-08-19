@@ -102,7 +102,12 @@ function createtemplate(data){
  app.get('/: article_Numb',function (req,res){
     var article_Numb = req.params.article_Numb;
     res.send(createtemplate(article_Numb));});*/
-
+var counter = 0;
+app.get('/ui/counter', function (req, res)
+{
+counter = counter++;
+res.send(counter.toString());
+});
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
