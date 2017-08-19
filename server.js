@@ -103,7 +103,7 @@ function createtemplate(data){
     var article_Numb = req.params.article_Numb;
     res.send(createtemplate(article_Numb));});*/
 var counter = 0;
-app.get('/ui/counter', function (req, res)
+app.get('/counter', function (req, res)
 {
 counter = counter++;
 res.send(counter.toString());
