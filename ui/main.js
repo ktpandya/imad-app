@@ -9,7 +9,7 @@ madi.onclick = function ()
 var interval = setinterval(moveright,100);    
 };*/
 madi.onclick = function ()
-{marginleft = marginleft + '10px';
-madi.style.marginleft = marginleft;
+{marginleft = marginleft + 10;
+madi.style.marginleft = marginleft + 'px';
     
 };
