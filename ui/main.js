@@ -1,9 +1,4 @@
-var button = document.getElementById('counter');
-var counter = 0;
-button.onClick=function()
-{
-  
-  counter = counter + 1;
-  var span = document.getElementById('count');
-  span.innerHTML = counter.toString();
+var madi = document.getElementById('madi');
+madi.onclick = function(){
+ madi.style.marginLeft = "10px";   
 };
