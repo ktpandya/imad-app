@@ -10,6 +10,6 @@ var interval = setinterval(moveright,100);
 };*/
 madi.onclick = function ()
 {marginleft = marginleft + '10px';
-madi.styl.marginleft = marginleft;
+madi.style.marginleft = marginleft;
     
 };
