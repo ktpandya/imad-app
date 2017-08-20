@@ -1,4 +1,7 @@
 var madi = document.getElementById('madi');
-madi.onclick = function(){
- madi.style.marginLeft = "10px";   
-};
+var marginleft = 0;
+function moveright ()
+{marginleft = marginleft + 10;
+madi.style.marginleft = marginleft + 'px';
+    
+}
