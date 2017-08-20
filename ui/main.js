@@ -4,7 +4,7 @@ function moveright ()
 {marginleft = marginleft + 10;
 madi.style.marginleft = marginleft + 'px';
 }
-img.onclick = function ()
+madi.onclick = function ()
 {
 var interval = setinterval(moveright,100);    
 };
