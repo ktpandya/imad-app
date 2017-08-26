@@ -11,8 +11,9 @@ app.get('/', function (req, res) {
 
 
 var articles=
-{ 
-    "articleOne":{
+ 
+    "articleOne":
+    {
     title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
      content :`<html>
@@ -30,12 +31,13 @@ var articles=
                             </p>    
                     </body>
     
-                </html>`
-}
-    "articleTwo"={
+                </html>`,
+    }
+    "articleTwo" :
+    {
                 title : 'KUSH PANDYA ARTICLE 2',
                 heading : 'ARTICLE2',
-                content :{`<html>
+                content :`<html>
                                 <head>
                                              <title>
                                                     KUSH PANDYA ARTICLE 2
@@ -49,10 +51,10 @@ var articles=
                                         </p>
                                 </body>
     
-                        </html>`;
+                        </html>`,
 
                  }
-    "articleThree"={
+    "articleThree":{
                 title: 'KUSH PANDYA ARTICLE 3',
                 heading: 'ARTICLE 3',
                 content :`<html>
