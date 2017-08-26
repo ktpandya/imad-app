@@ -8,7 +8,9 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
- 
+var title;
+var heading;
+var content;
 
 var article:
 {    articleOne :{title = 'KUSH PANDYA ARTICLE 1';
