@@ -13,7 +13,7 @@ madi.onclick = function ()
 madi.style.marginleft = '10px';
 
 };
-var nameinput = document.getElementById('name');
+var nameinput = document.getElementById('name_');
 var submit = document.getElementById('submit');
 var name = nameinput.value;
 submit.onclick = function ()
