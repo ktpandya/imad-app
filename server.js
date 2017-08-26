@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
 });
 
 
-var articles={
+var articles=
+{
     articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
@@ -53,7 +54,8 @@ var articles={
                         </html>`,
 
                  },
-articleThree:{
+    articleThree:
+    {
                 title: 'KUSH PANDYA ARTICLE 3',
                 heading: 'ARTICLE 3',
                 content :`<html>
@@ -77,7 +79,8 @@ articleThree:{
 };
 
 
-function createtemplate(data){
+function createtemplate(data)
+{
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
