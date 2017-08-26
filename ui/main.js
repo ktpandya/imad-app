@@ -1,4 +1,4 @@
-var madi = document.getElementById('madi');
+/*var madi = document.getElementById('madi');
 var marginleft = 0;
 /*function moveright ()
 {marginleft = marginleft + 10;
@@ -7,16 +7,16 @@ madi.style.marginleft = marginleft + 'px';
 madi.onclick = function ()
 {
 var interval = setinterval(moveright,100);    
-};*/
+};
 madi.onclick = function ()
 {marginleft = marginleft + 10;
 madi.style.marginleft = '10px';
 
-};
+};*/
 var nameinput = document.getElementById('name_');
 var submit = document.getElementById('submit');
 var name = nameinput.value;
-request.open('GET', 'http://kushpandya69.imad.hasura-app.io/submit-name?name=' + name, true);
+request.open('GET', 'https://kushpandya69.imad.hasura-app.io/submit-name?name=' + name, true);
 request.send(null);
 submit.onclick = function ()
 {
