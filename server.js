@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
 });
  
 
-/*var article ;{
-    article_1 :{title = 'KUSH PANDYA ARTICLE 1';
+var article:
+{    articleOne :{title = 'KUSH PANDYA ARTICLE 1';
      heading = 'ARTICLE 1';
      content =` <html>
                     <head>
@@ -30,44 +30,44 @@ app.get('/', function (req, res) {
     
                 </html>`;
                 }
-    article_2 : {
-title : 'KUSH PANDYA ARTICLE 2';
-heading : 'ARTICLE2' ;
-content : `<html>
-   <head>
-        <title>
-                KUSH PANDYA ARTICLE 2
-        </title>
+    articleTwo : {
+                title : 'KUSH PANDYA ARTICLE 2';
+                heading : 'ARTICLE2';
+                content : `<html>
+                                <head>
+                                             <title>
+                                                    KUSH PANDYA ARTICLE 2
+                                             </title>
         
-    </head>
-    <body>
-       <h2>ARTICLE2
-       </h2>
-       <p> HI THIS IS ARTICLE TWO OF KUSH PANDYA
-    </p>
-    </body>
+                                </head>
+                                <body>
+                                         <h2>ARTICLE2
+                                         </h2>
+                                        <p> HI THIS IS ARTICLE TWO OF KUSH PANDYA
+                                        </p>
+                                </body>
     
 </html>`;
 
 }
-    article_3 :{
-      title : 'KUSH PANDYA ARTICLE 3';
-      heading : 'ARTICLE 3';
-      content : `<html>
-    <head>
-        <title>
-                KUSH PANDYA ARTICLE 3
-        </title>
+    articleThree :{
+                title : 'KUSH PANDYA ARTICLE 3';
+                heading : 'ARTICLE 3';
+                content : `<html>
+                                <head>
+                                    <title>
+                                            KUSH PANDYA ARTICLE 3
+                                    </title>
         
-    </head>
-    <body>
-       <h2>ARTICLE 3 
-       </h2>
+                                 </head>
+                                <body>
+                                         <h2>ARTICLE 3 
+                                         </h2>
          
-        HI THIS IS ARTICLE THREE OF KUSH PANDYA
-    </body>
+                                             HI THIS IS ARTICLE THREE OF KUSH PANDYA
+                                 </body>
     
-</html>`;
+                            </html>`;
         
         
     }
@@ -98,16 +98,16 @@ function createtemplate(data){
     `;
     return HTMLtemplate;
 }
- 
- app.get('/: article_Numb',function (req,res){
-    var article_Numb = req.params.article_Numb;
-    res.send(createtemplate(article_Numb));});*/
-var counter = 0;
+} ;
+ app.get('/:articleName',function (req,res){
+    var articleName = req.params.articleName;
+    res.send(createtemplate(articleName));});
+/*var counter = 0;
 app.get('/counter', function (req, res)
 {
 counter = counter + 1;
 res.send(counter.toString());
-});
+});*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
