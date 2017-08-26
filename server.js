@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 
 var articles={
-    "articleOne":
+    articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
@@ -31,8 +31,8 @@ var articles={
                     </body>
     
                 </html>`,
-    }};
-    "articleTwo" :
+    },
+    articleTwo:
     {
                 title : 'KUSH PANDYA ARTICLE 2',
                 heading : 'ARTICLE2',
@@ -52,8 +52,8 @@ var articles={
     
                         </html>`,
 
-                 }
-    "articleThree":{
+                 },
+articleThree:{
                 title: 'KUSH PANDYA ARTICLE 3',
                 heading: 'ARTICLE 3',
                 content :`<html>
@@ -73,8 +73,8 @@ var articles={
                             </html>`,
                   
         
-                 }
-}
+                 },
+};
 
 
 function createtemplate(data){
@@ -104,7 +104,7 @@ function createtemplate(data){
 
  app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
-    res.send(createtemplate(articleName));});
+    res.send(createtemplate(articles[articleName]))});
 /*var counter = 0;
 app.get('/counter', function (req, res)
 {
