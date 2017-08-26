@@ -8,14 +8,14 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-var title;
-var heading;
-var content;
 
-var article:
-{    articleOne :{title = 'KUSH PANDYA ARTICLE 1';
-     heading = 'ARTICLE 1';
-     content =` <html>
+
+var articles=
+{ 
+    "articleOne":{
+    title : 'KUSH PANDYA ARTICLE 1',
+     heading : 'ARTICLE 1',
+     content :`<html>
                     <head>
                             <title>
                             KUSH PANDYA ARTICLE 1
@@ -30,12 +30,12 @@ var article:
                             </p>    
                     </body>
     
-                </html>`;
-                }
-    articleTwo : {
-                title : 'KUSH PANDYA ARTICLE 2';
-                heading : 'ARTICLE2';
-                content : `<html>
+                </html>`
+}
+    "articleTwo"={
+                title : 'KUSH PANDYA ARTICLE 2',
+                heading : 'ARTICLE2',
+                content :{`<html>
                                 <head>
                                              <title>
                                                     KUSH PANDYA ARTICLE 2
@@ -51,11 +51,11 @@ var article:
     
                         </html>`;
 
-                }
-    articleThree :{
-                title : 'KUSH PANDYA ARTICLE 3';
-                heading : 'ARTICLE 3';
-                content : `<html>
+                 }
+    "articleThree"={
+                title: 'KUSH PANDYA ARTICLE 3',
+                heading: 'ARTICLE 3',
+                content :`<html>
                                 <head>
                                     <title>
                                             KUSH PANDYA ARTICLE 3
@@ -69,11 +69,11 @@ var article:
                                              HI THIS IS ARTICLE THREE OF KUSH PANDYA
                                  </body>
     
-                            </html>`;
-        
+                            </html>`,
+                  
         
                  }
-
+};
 
 
 function createtemplate(data){
@@ -100,7 +100,7 @@ function createtemplate(data){
     `;
     return HTMLtemplate;
 }
-} ;
+
  app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articleName));});
