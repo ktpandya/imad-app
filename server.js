@@ -47,9 +47,9 @@ var article:
                                         </p>
                                 </body>
     
-</html>`;
+                        </html>`;
 
-}
+                }
     articleThree :{
                 title : 'KUSH PANDYA ARTICLE 3';
                 heading : 'ARTICLE 3';
@@ -70,9 +70,9 @@ var article:
                             </html>`;
         
         
-    }
+                 }
 
-}
+
 
 function createtemplate(data){
     var title = data.title;
