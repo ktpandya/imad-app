@@ -10,8 +10,7 @@ app.get('/', function (req, res) {
 });
 
 
-var articles=
- 
+var articles;
     "articleOne":
     {
     title : 'KUSH PANDYA ARTICLE 1',
@@ -75,7 +74,7 @@ var articles=
                   
         
                  }
-};
+}
 
 
 function createtemplate(data){
