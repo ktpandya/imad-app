@@ -16,6 +16,7 @@ madi.style.marginleft = '10px';
 var nameinput = document.getElementById('name_');
 var submit = document.getElementById('submit');
 var name = nameinput.value;
+var request = new XMLHttpRequest();
 request.open('GET', 'https://kushpandya69.imad.hasura-app.io/submit-name?name=' + name, true);
 request.send(null);
 submit.onclick = function ()
