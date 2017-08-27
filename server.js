@@ -1,14 +1,14 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var pool = require('pg').pool;
+/*var pool = require('pg').pool;
 var config={
     user:'kushpandya69',
     database:'kushpandya69',
     host:'DB-imad.hasura-app.io',
     port:5432,
     password:process.env.DB_PASSWORD,
-};
+};*/
     
 
 var app = express();
@@ -114,7 +114,7 @@ function createtemplate(data)
     return HTMLtemplate;
 }
 
-var pool = new pool(config);
+/*var pool = new pool(config);
 app.get('/test-DB',function (req,res)
 {    pool.query('SELECT * FROM test',function(err,result){
          if (err)
@@ -127,7 +127,7 @@ app.get('/test-DB',function (req,res)
      }
     });
 }
-);
+);*/
  app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});
