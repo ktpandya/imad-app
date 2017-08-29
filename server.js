@@ -7,7 +7,7 @@ var config={
     database:'kushpandya69',
     host:'DB-imad.hasura-app.io',
     port:5432,
-    password:process.env.DB_PASSWORD,
+    password:'db-kushpandya69-20862',//process.env.DB_PASSWORD,
 };
 var app = express();
 app.use(morgan('combined'));
