@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-app.use(morgan('combined'));
+
 var Pool = require('pg').Pool;
 var config={
     user : 'kushpandya69',
@@ -15,6 +15,7 @@ var app = express();
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.use(morgan('combined'));
 var articles={
     articleOne:
     {
