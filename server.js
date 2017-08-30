@@ -112,7 +112,7 @@ app.get('/testdb',function (req,res){    Pool.query('SELECT * FROM test',functio
          
      }
         else
-        {res.send( JSON.stringify(result) );
+        {res.send( JSON.stringify(result.rows) );
          
      }
     });
