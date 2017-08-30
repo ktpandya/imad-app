@@ -107,13 +107,17 @@ function createtemplate(data){
     return HTMLtemplate;
 }
 var Pool = new Pool(config);
-app.get('/testdb',function (req,res){    Pool.query('SELECT * FROM test',function(err,result){
+app.get('/articles/articleName',function (req,res){    Pool.query("SELECT * FROM article WHERE title =" +req.params.articleName ,function(err,result){
          if (err)
         {res.status(500).send(err,toString);
          
      }
         else
-        {res.send( JSON.stringify(result.rows) );
+        {
+            if (result.rows.length ===0)
+            {
+                
+            }res.send( JSON.stringify(result.rows) );
          
      }
     });
