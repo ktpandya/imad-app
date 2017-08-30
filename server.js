@@ -107,6 +107,7 @@ function createtemplate(data){
     return HTMLtemplate;
 }
 var Pool = new Pool(config);
+var articleData = req.params.articleName; 
 app.get('/articles/articleName',function (req,res){   
     Pool.query("SELECT * FROM article WHERE title = KUSH PANDYA ARTICLE 1"  ,function(err,result){
          if (err)
