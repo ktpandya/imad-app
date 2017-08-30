@@ -16,8 +16,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.use(morgan('combined'));
-/*var articles={
-    articleOne:
+var articles={
+   /* articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
