@@ -106,7 +106,7 @@ function createtemplate(data){
     `;
     return HTMLtemplate;
 }
-var Pool = new Pool(config);
+var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
    var articleData = req.params.articleName;
    pool.query("SELECT * FROM article WHERE heading =" + req.params.articleName , function (err,result)
