@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 });
 app.use(morgan('combined'));
 var articles={
-   /* articleOne:
+  /*  articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
      heading : 'ARTICLE 1',
