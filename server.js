@@ -115,10 +115,14 @@ app.get('/articles/articleName',function (req,res){    Pool.query("SELECT * FROM
         else
         {
             if (result.rows.length ===0)
-            {
+            {res.status(404).send('ARTICLE not found');
                 
-            }res.send( JSON.stringify(result.rows) );
-         
+            }
+            else
+            {var articleData = result.rows[0];
+            
+                res.send(createTemplate.articledata);
+            }
      }
     });
 });
