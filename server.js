@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
 var Pool = require('pg').Pool;
 var config={
     user : 'kushpandya69',
@@ -12,7 +12,7 @@ var config={
     password: process.env.DB_PASSWORD,
 };
 var app = express();
-app.use(bodyparser.JSON());
+app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
