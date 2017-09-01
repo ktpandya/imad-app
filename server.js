@@ -110,11 +110,12 @@ function hash (input)
 {var hashed = pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
 return hashed.toString('hex');
 }
-app.get('/hash/:input');
+app.get('/hash/:input' , function (req , res)
+
 {
-    var hashedString = hash(req.params.input , 'a random value');
+    var hashedString = hash (req.params.input , 'a random value');
     re.send(hashedString);
-}
+});
 
 var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
