@@ -4,7 +4,7 @@ var path = require('path');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var Pool = require('pg').Pool;
-//var config={
+var config={
     user : 'kushpandya69',
     database : 'kushpandya69',
     host : 'db.imad.hasura-app.io',
@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.use(morgan('combined'));
-//var articles={
+var articles={
     articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
@@ -83,7 +83,7 @@ app.use(morgan('combined'));
         
                  },
 };
-//function createtemplate(data){
+function createtemplate(data){
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
@@ -114,7 +114,8 @@ app.get('/hash/:input' , function (req , res){
     var hashedString = hash (req.params.input , 'a random value');
     res.send(hashedString);
 });
-app.post('/createuser' , function(req,res){
+app.post('/createuser' , function(req,res)
+{
 var username = req.body.username;
 var password = req.body.password;
 var salt = crypto.randomBytes(128).toString('hex');
@@ -130,8 +131,9 @@ pool.query('INSERT INTO "user" (username,password) VALUES ($1 , $2)' , [username
 
     
 });
+
 var pool = new Pool(config);
-//app.get('/articles/:articleName' ,function (req,res){
+app.get('/articles/:articleName' ,function (req,res){
    
    pool.query("SELECT * FROM article WHERE title = " ,req.params.articleName , function (err,result)
    {if (err)
@@ -149,7 +151,7 @@ var pool = new Pool(config);
     }
    });
 });
-//app.get('/:articleName',function (req,res){
+app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});
 app.get('/ui/style.css', function (req, res){
