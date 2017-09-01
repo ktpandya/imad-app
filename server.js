@@ -107,8 +107,7 @@ function createtemplate(data){
     `;
     return HTMLtemplate;
 }
-function hash (input , salt)
-{var hashed = crypto.pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
+function hash (input , salt){var hashed = crypto.pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
 return ['pbkdf2' , '10000' , salt ,hashed.toString('hex')].join('_');
 }
 app.get('/hash/:input' , function (req , res){
@@ -127,7 +126,7 @@ pool.query('INSERT INTO "user" (username,password) VALUES ($1 , $2)' , [username
    {res.status(500).send(err,toString());
       }
     else
-    {   res.send('User succesfully created');}
+    {   res.send('User' + username + 'succesfully created');}
 });
 
     
