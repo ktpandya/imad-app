@@ -4,7 +4,7 @@ var path = require('path');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var Pool = require('pg').Pool;
-var config={
+//var config={
     user : 'kushpandya69',
     database : 'kushpandya69',
     host : 'db.imad.hasura-app.io',
@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.use(morgan('combined'));
-var articles={
+//var articles={
     articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
@@ -83,7 +83,7 @@ var articles={
         
                  },
 };
-function createtemplate(data){
+//function createtemplate(data){
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
