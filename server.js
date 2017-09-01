@@ -106,6 +106,16 @@ function createtemplate(data){
     `;
     return HTMLtemplate;
 }
+function hash (input)
+{var hashed = pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
+return hashed.toString('hex');
+}
+app.get('/hash/:input');
+{
+    var hashedString = hash(req.params.input , 'a random value');
+    re.send(hashedString);
+}
+
 var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
    
@@ -125,15 +135,6 @@ app.get('/articles/:articleName' ,function (req,res){
     }
    });
 });
-function hash (input)
-{var hashed = pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
-return hashed.toString('hex');
-}
-app.get('/hash/:input');
-{
-    var hashedString = hash(req.params.input , 'a random value');
-    re.send(hashedString);
-}
 app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});
