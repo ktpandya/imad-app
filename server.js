@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var crypto = require('crypto');
 var Pool = require('pg').Pool;
 var config={
     user : 'kushpandya69',
@@ -109,7 +109,7 @@ function createtemplate(data){
 var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
    
-   pool.query("SELECT * FROM article WHERE title = ",req.params.articleName , function (err,result)
+   pool.query("SELECT * FROM article WHERE title = " ,req.params.articleName , function (err,result)
    {if (err)
    {res.status(500).send(err,toString());
       }
@@ -125,7 +125,15 @@ app.get('/articles/:articleName' ,function (req,res){
     }
    });
 });
-
+function hash (input)
+{var hashed = pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
+return hashed.toString('hex');
+}
+app.get('/hash/:input');
+{
+    var hashedString = hash(req.params.input , 'a random value');
+    re.send(hashedString);
+}
 app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});
