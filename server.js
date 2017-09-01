@@ -131,7 +131,7 @@ pool.query('INSERT INTO "user" (username,password) VALUES ($1 , $2)' , [username
     
 });
 
-var pool = new Pool(config);
+/*var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
    
    pool.query("SELECT * FROM article WHERE title = " ,req.params.articleName , function (err,result)
@@ -149,7 +149,7 @@ app.get('/articles/:articleName' ,function (req,res){
     }
     }
    });
-});
+});*/
 /*app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});*/
