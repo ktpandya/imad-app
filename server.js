@@ -114,8 +114,7 @@ app.get('/hash/:input' , function (req , res){
     var hashedString = hash (req.params.input , 'a random value');
     res.send(hashedString);
 });
-app.post('/createuser' , function(req,res)
-{
+app.post('/createuser' , function(req,res){
 var username = req.body.username;
 var password = req.body.password;
 var salt = crypto.randomBytes(128).toString('hex');
@@ -131,9 +130,8 @@ pool.query('INSERT INTO "user" (username,password) VALUES ($1 , $2)' , [username
 
     
 });
-
 var pool = new Pool(config);
-app.get('/articles/:articleName' ,function (req,res){
+//app.get('/articles/:articleName' ,function (req,res){
    
    pool.query("SELECT * FROM article WHERE title = " ,req.params.articleName , function (err,result)
    {if (err)
@@ -151,7 +149,7 @@ app.get('/articles/:articleName' ,function (req,res){
     }
    });
 });
-app.get('/:articleName',function (req,res){
+//app.get('/:articleName',function (req,res){
     var articleName = req.params.articleName;
     res.send(createtemplate(articles[articleName]))});
 app.get('/ui/style.css', function (req, res){
