@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.use(morgan('combined'));
-//var articles={
+/*articles={
     articleOne:
     {
     title : 'KUSH PANDYA ARTICLE 1',
@@ -106,7 +106,7 @@ app.use(morgan('combined'));
 </html>
     `;
     return HTMLtemplate;
-}
+}*/
 function hash (input , salt){var hashed = crypto.pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
 return ['pbkdf2' , '10000' , salt ,hashed.toString('hex')].join('_');
 }
