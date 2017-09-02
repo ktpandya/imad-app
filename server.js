@@ -12,78 +12,12 @@ var config={
     password: process.env.DB_PASSWORD,
 };
 var app = express();
-app.use(bodyParser.json());
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-app.use(morgan('combined'));
-/*articles={
-    articleOne:
-    {
-    title : 'KUSH PANDYA ARTICLE 1',
-     heading : 'ARTICLE 1',
-     content :`<html>
-                    <head>
-                            <title>
-                            KUSH PANDYA ARTICLE 1
-                            </title>
-                    </head>
-                    <body>
-                            <h2>
-                                 ARTICLE 1  
-                            </h2>
-                            <p>
-                                 HI THIS IS ARTICLE ONE OF KUSH PANDYA
-                            </p>    
-                    </body>
-    
-                </html>`,
-    },
-    articleTwo:
-    {
-                title : 'KUSH PANDYA ARTICLE 2',
-                heading : 'ARTICLE2',
-                content :`<html>
-                                <head>
-                                             <title>
-                                                    KUSH PANDYA ARTICLE 2
-                                             </title>
-        
-                                </head>
-                                <body>
-                                         <h2>ARTICLE2
-                                         </h2>
-                                        <p> HI THIS IS ARTICLE TWO OF KUSH PANDYA
-                                        </p>
-                                </body>
-    
-                        </html>`,
+var pool = new pool(config);
 
-                 },
-    articleThree:
-    {
-                title: 'KUSH PANDYA ARTICLE 3',
-                heading: 'ARTICLE 3',
-                content :`<html>
-                                <head>
-                                    <title>
-                                            KUSH PANDYA ARTICLE 3
-                                    </title>
-        
-                                 </head>
-                                <body>
-                                         <h2>ARTICLE 3 
-                                         </h2>
-         
-                                             HI THIS IS ARTICLE THREE OF KUSH PANDYA
-                                 </body>
-    
-                            </html>`,
-                  
-        
-                 },
-};
-//function createtemplate(data){
+app.use(morgan('combined'));
+app.use(bodyParser.json());
+
+function createtemplate(data){
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
@@ -106,20 +40,24 @@ app.use(morgan('combined'));
 </html>
     `;
     return HTMLtemplate;
-}*/
+}
 function hash (input , salt){var hashed = crypto.pbkdf2Sync(input , salt ,10000 , 512, 'sha512');
 return ['pbkdf2' , '10000' , salt ,hashed.toString('hex')].join('_');
 }
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 app.get('/hash/:input' , function (req , res){
     var hashedString = hash (req.params.input , 'a random value');
     res.send(hashedString);
 });
-app.post('/createuser' , function(req,res){
+app.post('/:createuser' , function(req,res){
 var username = req.body.username;
 var password = req.body.password;
 var salt = crypto.randomBytes(128).toString('hex');
 var dbString =hash(password , salt);
-pool.query('INSERT INTO "user" (username, password) VALUES ($1 , $2)', [username, dbString], function (err,result)
+pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err,result)
 {    if (err)
    {res.status(500).send(err,toString());
       }
@@ -129,8 +67,6 @@ pool.query('INSERT INTO "user" (username, password) VALUES ($1 , $2)', [username
 
     
 });
-
-/*var pool = new Pool(config);
 app.get('/articles/:articleName' ,function (req,res){
    
    pool.query("SELECT * FROM article WHERE title = " ,req.params.articleName , function (err,result)
@@ -148,10 +84,7 @@ app.get('/articles/:articleName' ,function (req,res){
     }
     }
    });
-});*/
-/*app.get('/:articleName',function (req,res){
-    var articleName = req.params.articleName;
-    res.send(createtemplate(articles[articleName]))});*/
+});
 app.get('/ui/style.css', function (req, res){
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
