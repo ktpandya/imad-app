@@ -2,7 +2,8 @@ var login = document.getElementById('login');
 var username = document.getElementById('username');
 var password = document.getElementById('password');
 
-login.onclick ( 
+var logged = login.onclick();
+if (logged){
 pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
     if (err)
     {res.send('no user'+username);
@@ -19,4 +20,4 @@ pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result
    });
        
    }
-}));
+});}
