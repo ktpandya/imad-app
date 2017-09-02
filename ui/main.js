@@ -1,17 +1,19 @@
-var nameinput = document.getElementById('name');
-var submit = document.getElementById('submit');
-var name = nameinput.value;
-/*var request = new XMLHttpRequest();
-request.open('GET', 'https://kushpandya69.imad.hasura-app.io/submit-name?name=' + name, true);
-request.send(null);
-*/submit.onclick = function ()
-{
-    var names = ['name1','name2','name3'];
-    var list = '';
-    for (var i = 1; i< names.length; i++);
-    {
-    list += '<li>' + names[i] + '</li>' ;
+var username = document.getElementById('username');
+var password = document.getElementById('password');
+pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
+    if (err)
+    {res.send('no user'+username);
     }
-    var ul = document.getElementById('namelist');
-    ul.innerHtml = list;
-};
+   else
+   {pool.query('SELECT *FROM "user" WHERE password = '+dbString , function(err,result){
+       if(err){
+           res.send('incorrect password');
+       }
+       else{
+           var R3sult = result.rows[0]; 
+           res.send(R3sult);
+       }
+   });
+       
+   }
+});
