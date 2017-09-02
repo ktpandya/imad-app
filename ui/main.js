@@ -1,5 +1,5 @@
 var login = document.getElementById('login');
-if(login === 1){
+if(login === true){
 var username = document.getElementById('username');
 var password = document.getElementById('password');
 pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
