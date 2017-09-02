@@ -20,14 +20,11 @@ var login = document.getElementById('login');
 var username = document.getElementById('username');
 var password = document.getElementById('password');
 
-var logged = login.onclick();
-if (logged){
-pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
-    if (err)
-    {res.send('no user'+username);
+login.onclick();{
+    pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
+    if (err){res.send('no user'+username);
     }
-   else
-   {pool.query('SELECT *FROM "user" WHERE password = '+dbString , function(err,result){
+   else{pool.query('SELECT *FROM "user" WHERE password = '+dbString , function(err,result){
        if(err){
            res.send('incorrect password');
        }
@@ -38,4 +35,4 @@ pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result
    });
        
    }
-});}
+};);}
