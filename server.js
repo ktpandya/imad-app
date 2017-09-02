@@ -74,7 +74,7 @@ app.get('/', function (req, res) {
 function hash (input, salt) {
     // How do we create a hash?
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
-    return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$');
+    return ["pbkdf2", "10000", salt, hashed.toString('hex')].join( ' ');
 }
 
 
@@ -214,21 +214,21 @@ app.get('/articles/:articleName', function (req, res) {
         res.status(500).send(err.toString());}
     else {
         if (result.rows.length === 0) {
-            res.status(404).send('Article not found');
-        } else {
+            res.status(404).send('Article not found');} 
+            else {
             var articleData = result.rows[0];
             res.send(createTemplate(articleData));
-        }
-    }
-  });
-});
+        }}})
+    
+  
+
 
 app.get('/ui/:fileName', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
 
 
-var port = 8080; // Use 8080 for local development because you might already have apache running on 80
-app.listen(8080, function () {
+var port = 80; // Use 8080 for local development because you might already have apache running on 80
+app.listen(80, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
