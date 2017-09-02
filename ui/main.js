@@ -1,4 +1,5 @@
 var login = document.getElementById('login');
+if(login === 1){
 var username = document.getElementById('username');
 var password = document.getElementById('password');
 pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
@@ -17,4 +18,4 @@ pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result
    });
        
    }
-});
+});}
