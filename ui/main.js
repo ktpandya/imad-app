@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');
@@ -24,7 +24,8 @@ login.onclick();{
     pool.query('SELECT * FROM "user" WHERE username ='+username ,function(err,result){
     if (err){res.send('no user'+username);
     }
-   else{pool.query('SELECT *FROM "user" WHERE password = '+dbString , function(err,result){
+   else{
+       pool.query('SELECT *FROM "user" WHERE password = '+dbString , function(err,result){
        if(err){
            res.send('incorrect password');
        }
@@ -34,5 +35,5 @@ login.onclick();{
        }
    });
        
-   }
-};);}
+   }}
+*/
