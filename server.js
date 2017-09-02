@@ -207,7 +207,7 @@ app.post('/submit-comment/:articleName', function (req, res) {
     }
 });
 
-app.get('/articles/:articleName', function (req, res) {
+/*app.get('/articles/:articleName', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
   pool.query("SELECT * FROM article WHERE title = $1", [req.params.articleName], function (err, result) {
     if (err) {
@@ -218,8 +218,8 @@ app.get('/articles/:articleName', function (req, res) {
             else {
             var articleData = result.rows[0];
             res.send(createTemplate(articleData));
-        }}})
-    
+        }}}};)
+    */
   
 
 
@@ -228,7 +228,7 @@ app.get('/ui/:fileName', function (req, res) {
 });
 
 
-var port = 80; // Use 8080 for local development because you might already have apache running on 80
-app.listen(80, function () {
+var port = 8080; // Use 8080 for local development because you might already have apache running on 80
+/*app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
-});
+});*/
