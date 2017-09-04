@@ -66,9 +66,9 @@ pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username,
 
     
 });
-app.get('/articles/:articleName' ,function (req,res){
+app.get('/articles/:article-name' ,function (req,res){
    
-   pool.query("SELECT * FROM article WHERE title = " +req.params.articleName , function (err,result)
+   pool.query("SELECT * FROM article WHERE title = " +req.params.article-name , function (err,result)
    {if (err)
    {res.status(500).send(err,toString());
       }
@@ -78,7 +78,7 @@ app.get('/articles/:articleName' ,function (req,res){
     else
     {
         var articleData = result.rows[0]; 
-        res.send(createTemplate(articleName));
+        res.send(createTemplate(article-name));
         
     }
     }
