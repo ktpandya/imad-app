@@ -1,3 +1,23 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @ktpandya
+ Sign out
+ Watch 11
+  Star 14
+  Fork 4,234 coco98/imad-2016-app
+forked from hasura-imad/imad-2016-app
+ Code  Pull requests 1  Projects 0  Wiki Insights 
+Branch: master Find file Copy pathimad-2016-app/server.js
+5cd93d4  on Nov 21, 2016
+@coco98 coco98 Update server.js
+1 contributor
+RawBlameHistory     
+239 lines (213 sloc)  7.68 KB
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
@@ -5,15 +25,16 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+
 var config = {
-    user: 'kushpandya69',
-    database: 'kushpandya69',
+    user: 'coco98',
+    database: 'coco98',
     host: 'db.imad.hasura-app.io',
     port: '5432',
     password: process.env.DB_PASSWORD
 };
-var app = express();
 
+var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(session({
@@ -74,7 +95,7 @@ app.get('/', function (req, res) {
 function hash (input, salt) {
     // How do we create a hash?
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
-    return ["pbkdf2", "10000", salt, hashed.toString('hex')].join( ' ');
+    return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$');
 }
 
 
@@ -158,7 +179,7 @@ var pool = new Pool(config);
 app.get('/get-articles', function (req, res) {
    // make a select request
    // return a response with the results
-   pool.query('SELECT * FROM article ', function (err, result) {
+   pool.query('SELECT * FROM article ORDER BY date DESC', function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
       } else {
@@ -185,18 +206,21 @@ app.post('/submit-comment/:articleName', function (req, res) {
         // First check if the article exists and get the article-id
         pool.query('SELECT * from article where title = $1', [req.params.articleName], function (err, result) {
             if (err) {
-                res.status(500).send(err.toString());}
-            else {
+                res.status(500).send(err.toString());
+            } else {
                 if (result.rows.length === 0) {
-                    res.status(400).send('Article not found');}
-                else {
+                    res.status(400).send('Article not found');
+                } else {
                     var articleId = result.rows[0].id;
                     // Now insert the right comment for this article
-                    pool.query("INSERT INTO comment (comment, article_id, user_id) VALUES ($1, $2, $3)",[req.body.comment, article.session.auth.userId],function (err, result) {
+                    pool.query(
+                        "INSERT INTO comment (comment, article_id, user_id) VALUES ($1, $2, $3)",
+                        [req.body.comment, articleId, req.session.auth.userId],
+                        function (err, result) {
                             if (err) {
-                                res.status(500).send(err.toString());}
-                            else {
-                                res.status(200).send('Comment inserted!');
+                                res.status(500).send(err.toString());
+                            } else {
+                                res.status(200).send('Comment inserted!')
                             }
                         });
                 }
@@ -211,16 +235,17 @@ app.get('/articles/:articleName', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
   pool.query("SELECT * FROM article WHERE title = $1", [req.params.articleName], function (err, result) {
     if (err) {
-        res.status(500).send(err.toString());}
-    else {
+        res.status(500).send(err.toString());
+    } else {
         if (result.rows.length === 0) {
-            res.status(404).send('Article not found');} 
-        else {
+            res.status(404).send('Article not found');
+        } else {
             var articleData = result.rows[0];
-            res.send(createTemplate(articleData));}
-})};
-  
-
+            res.send(createTemplate(articleData));
+        }
+    }
+  });
+});
 
 app.get('/ui/:fileName', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
@@ -228,6 +253,18 @@ app.get('/ui/:fileName', function (req, res) {
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
-/*app.listen(8080, function () {
+app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
-});*/
+});
+© 2017 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
