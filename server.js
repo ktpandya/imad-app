@@ -14,8 +14,8 @@ var config={
 var app = express();
 var pool = new Pool(config);
 
-/*app.use(morgan('combined'));
-app.use(bodyParser.json());*/
+app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 function createtemplate(data){
     var title = data.title;
@@ -57,7 +57,7 @@ var username = req.body.username;
 var password = req.body.password;
 var salt = crypto.randomBytes(128).toString('hex');
 var dbString =hash(password , salt);
-pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err,result){    if (err)
+pool.query(`INSERT INTO "user" (username, password) VALUES ($1, $2)`, [username, dbString], function (err,result){    if (err)
    {res.status(500).send(err,toString());
       }
      else
@@ -68,7 +68,7 @@ pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username,
 });
 app.get('/:articleName' ,function (req,res){
    
-   pool.query("SELECT * FROM article WHERE title = " , req.params.articleName , function (err,result)
+   pool.query(`SELECT * FROM article WHERE "title" = ` , req.params.articleName , function (err,result)
    {if (err)
    {res.status(500).send(err,toString());
       }
